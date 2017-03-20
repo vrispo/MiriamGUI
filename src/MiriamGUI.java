@@ -157,7 +157,7 @@ public class MiriamGUI {
 		GBL.setConstraints(Pan5, BagC);
 		MCont.add(Pan5);
 
-		MGUI.setVisible(true);
+		MGUI.setVisible(false);
 
 		//JSON get
 		Gson g= new Gson();
@@ -212,7 +212,7 @@ public class MiriamGUI {
 			int h=date.getHours();
 			String Muserinfo;
 			if(h<=12)
-				Muserinfo="Good Morning "+Minfo.getClientinfo();
+				Muserinfo="Good Morning  "+Minfo.getClientinfo();
 			else
 				Muserinfo="Good Evening "+Minfo.getClientinfo();
 			Mhello.setText(Muserinfo);
@@ -272,6 +272,7 @@ public class MiriamGUI {
 				default: img=new JLabel();
 			}
 			Pan2.add(img);
+			MGUI.setVisible(true);
 		}
 	}
 
