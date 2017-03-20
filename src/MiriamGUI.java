@@ -3,19 +3,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Date;
 import com.google.gson.*;
-//import nanomsg.pipeline.PullSocket;
+import nanomsg.exceptions.*;
+import nanomsg.pipeline.PullSocket;
 
 public class MiriamGUI {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		/*PullSocket sock = new PullSocket();
-		 sock.connect("tcp://localhost:6789");
-	        for (int i=0; i<3; i++) {
-	            System.out.println("Hello " + sock.recvString());
-	        }
-
-	        sock.close();*/
+		PullSocket sock = new PullSocket();
+		sock.setRecvTimeout(-1);
+		sock.setSendTimeout(-1);
+		 sock.bind("tcp://127.0.0.1:40000");
 
 		Font fTime=new Font("Arial",Font.ITALIC, 25);
 		Font fEmail=new Font("Arial",Font.ITALIC, 17);
@@ -160,6 +158,10 @@ public class MiriamGUI {
 		MGUI.setVisible(false);
 
 		//JSON get
+		
+		String jnew=sock.recvString();
+		sock.close();
+		System.out.println(jnew);
 		Gson g= new Gson();
 		String j="{\"weather\":\"08\",\"temperature\":18.71,\"unread\":2," +
 				"\"email_list\":[{\"name\":\"rossella carletti\",\"email\":\"carletti.rossella@gmail.com\",\"subject\":\"prova2\"}," +
