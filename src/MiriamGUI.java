@@ -47,63 +47,35 @@ public class MiriamGUI {
 
 		//Initialization of the text area to show the email
 
-		Pan3.setLayout(new GridLayout(20,1));
-		JLabel Lemailnumber[]=new JLabel[5];
-		JLabel Lemailname[]=new JLabel[5];
+		Pan3.setLayout(new GridLayout(6,1));
 		JLabel Lemail[]=new JLabel[5];
-		JLabel Lemailsubject[]=new JLabel[5];
+		JLabel Lemailunread=new JLabel();
+		Lemailunread.setFont(fEmail);
+		Lemailunread.setBackground(Color.black);
+		Lemailunread.setForeground(Color.white);
+		Pan3.add(Lemailunread);
 		for(int i=0;i<5;i++){
-			Lemailname[i]=new JLabel();
 			Lemail[i]=new JLabel();
-			Lemailsubject[i]=new JLabel();
-			Lemailnumber[i]=new JLabel();
-
-			Lemailname[i].setFont(fEmail);
 			Lemail[i].setFont(fEmail);
-			Lemailsubject[i].setFont(fEmail);
-			Lemailnumber[i].setFont(fEmail);
-
-			Lemailname[i].setBackground(Color.black);
 			Lemail[i].setBackground(Color.black);
-			Lemailsubject[i].setBackground(Color.black);
-			Lemailnumber[i].setBackground(Color.black);
-
-			Lemailname[i].setForeground(Color.white);
 			Lemail[i].setForeground(Color.white);
-			Lemailsubject[i].setForeground(Color.white);
-			Lemailnumber[i].setForeground(Color.white);
-
-			Pan3.add(Lemailnumber[i]);
-			Pan3.add(Lemailname[i]);
 			Pan3.add(Lemail[i]);
-			Pan3.add(Lemailsubject[i]);
 		}
 
 		//Initialization of the text area to show the event
-		Pan4.setLayout(new GridLayout(20,1));
-		JLabel Leventname[]=new JLabel[5];
-		JLabel Leventtime[]=new JLabel[5];
-		JLabel Leventnumber[]=new JLabel[5];
+		Pan4.setLayout(new GridLayout(6,1));
+		JLabel Levent[]=new JLabel[5];
+		JLabel LeventN=new JLabel();
+		LeventN.setFont(fEmail);
+		LeventN.setBackground(Color.black);
+		LeventN.setForeground(Color.white);
+		Pan4.add(LeventN);
 		for(int i=0;i<5;i++){
-			Leventname[i]=new JLabel();
-			Leventtime[i]=new JLabel();
-			Leventnumber[i]=new JLabel();
-
-			Leventname[i].setFont(fEmail);
-			Leventtime[i].setFont(fEmail);
-			Leventnumber[i].setFont(fEmail);
-
-			Leventname[i].setBackground(Color.black);
-			Leventtime[i].setBackground(Color.black);
-			Leventnumber[i].setBackground(Color.black);
-
-			Leventname[i].setForeground(Color.white);
-			Leventtime[i].setForeground(Color.white);
-			Leventnumber[i].setForeground(Color.white);
-
-			Pan4.add(Leventnumber[i]);
-			Pan4.add(Leventname[i]);
-			Pan4.add(Leventtime[i]);
+			Levent[i]=new JLabel();
+			Levent[i].setFont(fEmail);
+			Levent[i].setBackground(Color.black);
+			Levent[i].setForeground(Color.white);
+			Pan4.add(Levent[i]);;
 		}
 
 		Container MCont=MGUI.getContentPane();
@@ -163,16 +135,16 @@ public class MiriamGUI {
 		sock.close();
 		System.out.println(jnew);
 		Gson g= new Gson();
-		String j="{\"weather\":\"08\",\"temperature\":18.71,\"unread\":2," +
+		/*String j="{\"weather\":\"08\",\"temperature\":18.71,\"unread\":2," +
 				"\"email_list\":[{\"name\":\"rossella carletti\",\"email\":\"carletti.rossella@gmail.com\",\"subject\":\"prova2\"}," +
 				"{\"name\":\"rossella carletti\",\"email\":\"carletti.rossella@gmail.com\",\"subject\":\"prova\"}],\"" +
 				"events\":[{\"name\":\"esame x\",\"time\":\"21 marzo 2017 11:00\"}," +
 				"{\"name\":\"esame y\",\"time\":\"27 marzo 2017 10:00\"}]" +
-				",\"user_id\":\"stupido chi legge\",\"command\":\"s\"}";
-		InfoGUI Minfo=(InfoGUI) g.fromJson(j, InfoGUI.class);
+				",\"user_id\":\"stupido chi legge\",\"command\":\"d\"}";*/
+		InfoGUI Minfo=(InfoGUI) g.fromJson(jnew, InfoGUI.class);
 		System.out.println(Minfo.toString());
 
-		if(Minfo.getCommand()=='s'){
+		if(Minfo.getCommand()=='d'){
 			//Time panel
 			Pan1.add(MDatePanel=new DatePan());
 			MDatePanel.setFont(fTime);
@@ -180,32 +152,24 @@ public class MiriamGUI {
 
 			//Email setting text
 			int ne=Minfo.getNumberOfEmail();
+			String tmpNU="Unread:"+Minfo.getUnread();
+			Lemailunread.setText(tmpNU);
 			for(int i=0;i<ne;i++){
 				String[] parts=Minfo.getxSendertoString(i).split(",");
-				String tmpN=parts[0];
-				String tmpE=parts[1];
-				String tmpS=parts[2];
-				String tmpNU="Unread:"+Minfo.getUnread();
-
-				Lemailname[i].setText(tmpN);
-				Lemail[i].setText(tmpE);
-				Lemailsubject[i].setText(tmpS);
-				if(i==0)
-					Lemailnumber[i].setText(tmpNU);
+				String tmpEmail="<html>"+parts[0]+"<br>"+parts[1]+"<br>"+parts[2]+"<br></html>";
+				
+				Lemail[i].setText(tmpEmail);				
 			}
 
 			//Event setting text
 			int nev=Minfo.getNumberOfEvents();
+			String tmpNev="Event number:"+nev;
+			LeventN.setText(tmpNev);
 			for(int i=0;i<nev;i++){
 				String[] parts=Minfo.getxEventtoString(i).split(",");
-				String tmpN=parts[0];
-				String tmpE=parts[1];
-				String tmpNU="Event number:"+nev;
-
-				Leventname[i].setText(tmpN);
-				Leventtime[i].setText(tmpE);
-				if(i==0)
-					Leventnumber[i].setText(tmpNU);
+				String tmpEvent="<html>"+parts[0]+"<br>"+parts[1]+"<br></html>";
+				
+				Levent[i].setText(tmpEvent);				
 			}
 
 			//hello panel
@@ -214,9 +178,9 @@ public class MiriamGUI {
 			int h=date.getHours();
 			String Muserinfo;
 			if(h<=12)
-				Muserinfo="Good Morning  "+Minfo.getClientinfo();
+				Muserinfo="<html>Good Morning  <br>"+Minfo.getClientinfo()+"</html>";
 			else
-				Muserinfo="Good Evening "+Minfo.getClientinfo();
+				Muserinfo="<html>Good Evening  <br>"+Minfo.getClientinfo()+"</html>";
 			Mhello.setText(Muserinfo);
 			Mhello.setForeground(Color.white);
 			Pan5.add(Mhello);
