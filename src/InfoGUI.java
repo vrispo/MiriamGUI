@@ -117,7 +117,7 @@ public class InfoGUI {
 		int n = email_list.length;
 		String e="";
 		for(int i=0;i<n;i++)
-			e=e+email_list[i].toString();
+			e=e+email_list[i].toString()+" ";
 		return "InfoGUI [weather=" + weather + ", temp=" + temperature + ", unread="
 				+ unread + ", sender=" + e + ", event=" + events
 				+ ", clientinfo=" + user_id + ", command=" + command + "]";
