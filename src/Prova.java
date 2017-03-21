@@ -17,7 +17,7 @@ public class Prova {
 				"{\"name\":\"rossella carletti\",\"email\":\"carletti.rossella@gmail.com\",\"subject\":\"prova\"}],\"" +
 				"events\":[{\"name\":\"esame x\",\"time\":\"21 marzo 2017 11:00\"}," +
 				"{\"name\":\"esame y\",\"time\":\"27 marzo 2017 10:00\"}]" +
-				",\"user_id\":\"stupido chi legge\",\"command\":\"s\"}";
+				",\"user_id\":\"stupido chi legge\",\"command\":\"d\"}";
 
         /*for(int i=0; i<people.length; ++i) {
             sock.send(people[i]);
