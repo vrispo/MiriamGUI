@@ -4,11 +4,11 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.Timer;
 
-public class DatePan extends JLabel{
+public class TimePan extends JLabel{
 	private static final long serialVersionUID = 1l;
-	private static final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALIAN);
+	private static final DateFormat dateFormat = DateFormat.getTimeInstance(DateFormat.MEDIUM, Locale.ITALIAN);
 
-	public DatePan(){
+	public TimePan(){
 		super(dateFormat.format(Calendar.getInstance().getTime()));
 
 		new Timer(1000,new ActionListener(){

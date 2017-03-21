@@ -15,10 +15,12 @@ public class MiriamGUI {
 		sock.setSendTimeout(-1);
 		 sock.bind("tcp://127.0.0.1:40000");
 
-		Font fTime=new Font("Arial",Font.ITALIC, 25);
-		Font fEmail=new Font("Arial",Font.ITALIC, 17);
+		Font fTime=new Font("Arial",Font.ITALIC, 30);
+		Font fDate=new Font("Arial",Font.ITALIC, 15);
+		Font fEmail=new Font("Arial",Font.ITALIC, 15);
 
 		DatePan MDatePanel;
+		TimePan MTimePanel;
 		EmailPan MEmailPanel=new EmailPan();
 		JLabel Lemailunread=new JLabel();
 		EventPan MEventPanel=new EventPan();
@@ -41,6 +43,8 @@ public class MiriamGUI {
 		JPanel Pan6= new JPanel();
 		JPanel Pan7= new JPanel();
 		JPanel Pan8= new JPanel();
+		JPanel Pan9= new JPanel();
+		JPanel Pan10= new JPanel();
 
 		//general configuration of all the panel
 		Pan1.setBackground(Color.black);
@@ -51,11 +55,13 @@ public class MiriamGUI {
 		Pan6.setBackground(Color.black);
 		Pan7.setBackground(Color.black);
 		Pan8.setBackground(Color.black);
+		Pan9.setBackground(Color.black);
+		Pan10.setBackground(Color.black);
 
-		Pan1.setPreferredSize(new Dimension(500,100));
+/*		Pan1.setPreferredSize(new Dimension(500,100));
 		Pan2.setPreferredSize(new Dimension(500,100));
 		Pan5.setPreferredSize(new Dimension(900,50));
-		Pan6.setPreferredSize(new Dimension(900,300));
+		Pan6.setPreferredSize(new Dimension(900,300));*/
 
 		//Initialization of the text area to show the email
 		MEmailPanel.setBackground(Color.black);
@@ -65,8 +71,6 @@ public class MiriamGUI {
 		Lemailunread.setForeground(Color.white);		
 		Lemailunread.setFont(fEmail);
 		
-		Pan7.setLayout(new GridLayout(2,1));
-		Pan7.add(Lemailunread);
 		Pan3.add(MEmailPanel);	
 
 		//Initialization of the text area to show the event
@@ -75,52 +79,15 @@ public class MiriamGUI {
 		MEventPanel.setFont(fEmail);
 		LeventN.setBackground(Color.black);
 		LeventN.setForeground(Color.white);		
-		LeventN.setFont(fEmail);
-		
-		Pan8.setLayout(new GridLayout(2,1));
-		Pan8.add(LeventN);
+		LeventN.setFont(fEmail);	
+
 		Pan4.add(MEventPanel);	
 
 		Container MCont=MGUI.getContentPane();
 		MCont.setBackground(Color.black);
 
-		//layout pan 7
-		GridBagLayout GBLpan7=new GridBagLayout();
-		Pan7.setLayout(GBLpan7);
-		GridBagConstraints BagCpan7=new GridBagConstraints();
-		
-		BagCpan7.fill=GridBagConstraints.BOTH;
-		BagCpan7.weightx=0;
-		BagCpan7.weighty=0;
-		BagCpan7.gridx=0;
-		BagCpan7.gridy=1;
-		GBLpan7.setConstraints(Lemailunread, BagCpan7);
-		
-		BagCpan7.fill=GridBagConstraints.BOTH;
-		BagCpan7.weightx=1;
-		BagCpan7.weighty=1;
-		BagCpan7.gridx=0;
-		BagCpan7.gridy=0;
-		GBLpan7.setConstraints(imgemail, BagCpan7);
-		
-		//layout pan 8
-		GridBagLayout GBLpan8=new GridBagLayout();
-		Pan8.setLayout(GBLpan8);
-		GridBagConstraints BagCpan8=new GridBagConstraints();
-		
-		BagCpan8.fill=GridBagConstraints.BOTH;
-		BagCpan8.weightx=0;
-		BagCpan8.weighty=0;
-		BagCpan8.gridx=0;
-		BagCpan8.gridy=1;
-		GBLpan8.setConstraints(LeventN, BagCpan8);
-		
-		BagCpan8.fill=GridBagConstraints.BOTH;
-		BagCpan8.weightx=1;
-		BagCpan8.weighty=1;
-		BagCpan8.gridx=0;
-		BagCpan8.gridy=0;
-		GBLpan8.setConstraints(imgevent, BagCpan8);
+		Pan5.add(Lemailunread);
+		Pan10.add(LeventN);
 		
 		//layout
 		GridBagLayout GBL=new GridBagLayout();
@@ -128,20 +95,29 @@ public class MiriamGUI {
 		GridBagConstraints BagC=new GridBagConstraints();
 
 		BagC.fill=GridBagConstraints.BOTH;
-		BagC.weightx=1;
+		BagC.weightx=0;
 		BagC.weighty=0;
 		BagC.gridx=0;
 		BagC.gridy=0;
-		BagC.gridwidth=2;
+		BagC.gridwidth=1;
 		GBL.setConstraints(Pan1, BagC);
 		MCont.add(Pan1);
-
+		
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=1;
 		BagC.weighty=0;
-		BagC.gridx=2;
+		BagC.gridx=1;
 		BagC.gridy=0;
 		BagC.gridwidth=2;
+		GBL.setConstraints(Pan9, BagC);
+		MCont.add(Pan9);
+
+		BagC.fill=GridBagConstraints.BOTH;
+		BagC.weightx=0;
+		BagC.weighty=0;
+		BagC.gridx=3;
+		BagC.gridy=0;
+		BagC.gridwidth=1;
 		GBL.setConstraints(Pan2, BagC);
 		MCont.add(Pan2);
 
@@ -155,7 +131,7 @@ public class MiriamGUI {
 		MCont.add(Pan7);
 		
 		BagC.fill=GridBagConstraints.BOTH;
-		BagC.weightx=0;
+		BagC.weightx=1;
 		BagC.weighty=0;
 		BagC.gridx=1;
 		BagC.gridy=3;
@@ -173,7 +149,7 @@ public class MiriamGUI {
 		MCont.add(Pan8);
 
 		BagC.fill=GridBagConstraints.BOTH;
-		BagC.weightx=0;
+		BagC.weightx=1;
 		BagC.weighty=0;
 		BagC.gridx=3;
 		BagC.gridy=3;
@@ -182,19 +158,28 @@ public class MiriamGUI {
 		MCont.add(Pan4);
 
 		BagC.fill=GridBagConstraints.BOTH;
-		BagC.weightx=1;
+		BagC.weightx=0;
 		BagC.weighty=0;
 		BagC.gridx=0;
-		BagC.gridy=1;
-		BagC.gridwidth=4;
+		BagC.gridy=2;
+		BagC.gridwidth=1;
 		GBL.setConstraints(Pan5, BagC);
 		MCont.add(Pan5);
+		
+		BagC.fill=GridBagConstraints.BOTH;
+		BagC.weightx=0;
+		BagC.weighty=0;
+		BagC.gridx=2;
+		BagC.gridy=2;
+		BagC.gridwidth=1;
+		GBL.setConstraints(Pan10, BagC);
+		MCont.add(Pan10);
 
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=1;
 		BagC.weighty=1;
 		BagC.gridx=0;
-		BagC.gridy=2;
+		BagC.gridy=1;
 		BagC.gridwidth=4;
 		GBL.setConstraints(Pan6, BagC);
 		MCont.add(Pan6);
@@ -217,10 +202,31 @@ public class MiriamGUI {
 		System.out.println(Minfo.toString());
 
 		if(Minfo.getCommand()=='d'){
-			//Time panel
+			//DateTime panel
+			Pan1.add(MTimePanel=new TimePan());
+			MTimePanel.setFont(fTime);
+			MTimePanel.setForeground(Color.white);
 			Pan1.add(MDatePanel=new DatePan());
-			MDatePanel.setFont(fTime);
+			MDatePanel.setFont(fDate);
 			MDatePanel.setForeground(Color.white);
+			
+			GridBagLayout GBLpan1=new GridBagLayout();
+			Pan1.setLayout(GBLpan1);
+			GridBagConstraints BagCpan1=new GridBagConstraints();
+			
+			BagCpan1.fill=GridBagConstraints.BOTH;
+			BagCpan1.weightx=0;
+			BagCpan1.weighty=0;
+			BagCpan1.gridx=0;
+			BagCpan1.gridy=0;
+			GBLpan1.setConstraints(MTimePanel, BagCpan1);
+			
+			BagCpan1.fill=GridBagConstraints.BOTH;
+			BagCpan1.weightx=0;
+			BagCpan1.weighty=0;
+			BagCpan1.gridx=0;
+			BagCpan1.gridy=1;
+			GBLpan1.setConstraints(MDatePanel, BagCpan1);
 
 			//Email setting text
 			String tmpNU="Unread:"+Minfo.getUnread();
@@ -272,12 +278,12 @@ public class MiriamGUI {
 			int h=date.getHours();
 			String Muserinfo;
 			if(h<=12)
-				Muserinfo="<html>Good Morning  <br>"+Minfo.getClientinfo()+"</html>";
+				Muserinfo="<html>Good Morning "+Minfo.getClientinfo()+"</html>";
 			else
-				Muserinfo="<html>Good Evening  <br>"+Minfo.getClientinfo()+"</html>";
+				Muserinfo="<html>Good Evening "+Minfo.getClientinfo()+"</html>";
 			Mhello.setText(Muserinfo);
 			Mhello.setForeground(Color.white);
-			Pan5.add(Mhello);
+			Pan9.add(Mhello);
 
 			//meteo panel
 			int currW=Integer.parseInt(Minfo.getWeather());
