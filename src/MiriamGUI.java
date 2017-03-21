@@ -19,6 +19,10 @@ public class MiriamGUI {
 		Font fEmail=new Font("Arial",Font.ITALIC, 17);
 
 		DatePan MDatePanel;
+		EmailPan MEmailPanel=new EmailPan();
+		JLabel Lemailunread=new JLabel();
+		EventPan MEventPanel=new EventPan();
+		JLabel LeventN=new JLabel();
 
 		JFrame MGUI;
 		MGUI= new JFrame("Miriam GUI");
@@ -46,37 +50,28 @@ public class MiriamGUI {
 		Pan5.setPreferredSize(new Dimension(500,50));
 
 		//Initialization of the text area to show the email
-
-		Pan3.setLayout(new GridLayout(6,1));
-		JLabel Lemail[]=new JLabel[5];
-		JLabel Lemailunread=new JLabel();
-		Lemailunread.setFont(fEmail);
+		MEmailPanel.setBackground(Color.black);
+		MEmailPanel.setForeground(Color.white);
+		MEmailPanel.setFont(fEmail);
 		Lemailunread.setBackground(Color.black);
-		Lemailunread.setForeground(Color.white);
+		Lemailunread.setForeground(Color.white);		
+		Lemailunread.setFont(fEmail);
+		
+		Pan3.setLayout(new GridLayout(2,1));
 		Pan3.add(Lemailunread);
-		for(int i=0;i<5;i++){
-			Lemail[i]=new JLabel();
-			Lemail[i].setFont(fEmail);
-			Lemail[i].setBackground(Color.black);
-			Lemail[i].setForeground(Color.white);
-			Pan3.add(Lemail[i]);
-		}
+		Pan3.add(MEmailPanel);	
 
 		//Initialization of the text area to show the event
-		Pan4.setLayout(new GridLayout(6,1));
-		JLabel Levent[]=new JLabel[5];
-		JLabel LeventN=new JLabel();
-		LeventN.setFont(fEmail);
+		MEventPanel.setBackground(Color.black);
+		MEventPanel.setForeground(Color.white);
+		MEventPanel.setFont(fEmail);
 		LeventN.setBackground(Color.black);
-		LeventN.setForeground(Color.white);
+		LeventN.setForeground(Color.white);		
+		LeventN.setFont(fEmail);
+		
+		Pan4.setLayout(new GridLayout(2,1));
 		Pan4.add(LeventN);
-		for(int i=0;i<5;i++){
-			Levent[i]=new JLabel();
-			Levent[i].setFont(fEmail);
-			Levent[i].setBackground(Color.black);
-			Levent[i].setForeground(Color.white);
-			Pan4.add(Levent[i]);;
-		}
+		Pan4.add(MEventPanel);	
 
 		Container MCont=MGUI.getContentPane();
 		MCont.setBackground(Color.black);
@@ -151,26 +146,30 @@ public class MiriamGUI {
 			MDatePanel.setForeground(Color.white);
 
 			//Email setting text
-			int ne=Minfo.getNumberOfEmail();
 			String tmpNU="Unread:"+Minfo.getUnread();
 			Lemailunread.setText(tmpNU);
+			
+			int ne=Minfo.getNumberOfEmail();
+			String[] emailtxt=new String[ne];
 			for(int i=0;i<ne;i++){
 				String[] parts=Minfo.getxSendertoString(i).split(",");
 				String tmpEmail="<html>"+parts[0]+"<br>"+parts[1]+"<br>"+parts[2]+"<br></html>";
-				
-				Lemail[i].setText(tmpEmail);				
+				emailtxt[i]=tmpEmail;			
 			}
-
-			//Event setting text
+			MEmailPanel.setEmailtxt(emailtxt);
+			
+			//Event setting text			
 			int nev=Minfo.getNumberOfEvents();
-			String tmpNev="Event number:"+nev;
+			String tmpNev="Event number:"+nev;			
 			LeventN.setText(tmpNev);
+			
+			String[] eventtxt=new String[nev];
 			for(int i=0;i<nev;i++){
 				String[] parts=Minfo.getxEventtoString(i).split(",");
 				String tmpEvent="<html>"+parts[0]+"<br>"+parts[1]+"<br></html>";
-				
-				Levent[i].setText(tmpEvent);				
+				eventtxt[i]=tmpEvent;			
 			}
+			MEventPanel.setEventtxt(eventtxt);
 
 			//hello panel
 			JLabel Mhello= new JLabel();
