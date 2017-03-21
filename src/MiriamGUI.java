@@ -23,6 +23,9 @@ public class MiriamGUI {
 		JLabel Lemailunread=new JLabel();
 		EventPan MEventPanel=new EventPan();
 		JLabel LeventN=new JLabel();
+		
+		JLabel imgemail=new JLabel();
+		JLabel imgevent=new JLabel();
 
 		JFrame MGUI;
 		MGUI= new JFrame("Miriam GUI");
@@ -35,6 +38,9 @@ public class MiriamGUI {
 		JPanel Pan3= new JPanel();
 		JPanel Pan4= new JPanel();
 		JPanel Pan5= new JPanel();
+		JPanel Pan6= new JPanel();
+		JPanel Pan7= new JPanel();
+		JPanel Pan8= new JPanel();
 
 		//general configuration of all the panel
 		Pan1.setBackground(Color.black);
@@ -42,12 +48,14 @@ public class MiriamGUI {
 		Pan3.setBackground(Color.black);
 		Pan4.setBackground(Color.black);
 		Pan5.setBackground(Color.black);
+		Pan6.setBackground(Color.black);
+		Pan7.setBackground(Color.black);
+		Pan8.setBackground(Color.black);
 
 		Pan1.setPreferredSize(new Dimension(500,100));
 		Pan2.setPreferredSize(new Dimension(500,100));
-		Pan3.setPreferredSize(new Dimension(500,400));
-		Pan4.setPreferredSize(new Dimension(500,400));
-		Pan5.setPreferredSize(new Dimension(500,50));
+		Pan5.setPreferredSize(new Dimension(900,50));
+		Pan6.setPreferredSize(new Dimension(900,300));
 
 		//Initialization of the text area to show the email
 		MEmailPanel.setBackground(Color.black);
@@ -57,8 +65,8 @@ public class MiriamGUI {
 		Lemailunread.setForeground(Color.white);		
 		Lemailunread.setFont(fEmail);
 		
-		Pan3.setLayout(new GridLayout(2,1));
-		Pan3.add(Lemailunread);
+		Pan7.setLayout(new GridLayout(2,1));
+		Pan7.add(Lemailunread);
 		Pan3.add(MEmailPanel);	
 
 		//Initialization of the text area to show the event
@@ -69,13 +77,51 @@ public class MiriamGUI {
 		LeventN.setForeground(Color.white);		
 		LeventN.setFont(fEmail);
 		
-		Pan4.setLayout(new GridLayout(2,1));
-		Pan4.add(LeventN);
+		Pan8.setLayout(new GridLayout(2,1));
+		Pan8.add(LeventN);
 		Pan4.add(MEventPanel);	
 
 		Container MCont=MGUI.getContentPane();
 		MCont.setBackground(Color.black);
 
+		//layout pan 7
+		GridBagLayout GBLpan7=new GridBagLayout();
+		Pan7.setLayout(GBLpan7);
+		GridBagConstraints BagCpan7=new GridBagConstraints();
+		
+		BagCpan7.fill=GridBagConstraints.BOTH;
+		BagCpan7.weightx=0;
+		BagCpan7.weighty=0;
+		BagCpan7.gridx=0;
+		BagCpan7.gridy=1;
+		GBLpan7.setConstraints(Lemailunread, BagCpan7);
+		
+		BagCpan7.fill=GridBagConstraints.BOTH;
+		BagCpan7.weightx=1;
+		BagCpan7.weighty=1;
+		BagCpan7.gridx=0;
+		BagCpan7.gridy=0;
+		GBLpan7.setConstraints(imgemail, BagCpan7);
+		
+		//layout pan 8
+		GridBagLayout GBLpan8=new GridBagLayout();
+		Pan8.setLayout(GBLpan8);
+		GridBagConstraints BagCpan8=new GridBagConstraints();
+		
+		BagCpan8.fill=GridBagConstraints.BOTH;
+		BagCpan8.weightx=0;
+		BagCpan8.weighty=0;
+		BagCpan8.gridx=0;
+		BagCpan8.gridy=1;
+		GBLpan8.setConstraints(LeventN, BagCpan8);
+		
+		BagCpan8.fill=GridBagConstraints.BOTH;
+		BagCpan8.weightx=1;
+		BagCpan8.weighty=1;
+		BagCpan8.gridx=0;
+		BagCpan8.gridy=0;
+		GBLpan8.setConstraints(imgevent, BagCpan8);
+		
 		//layout
 		GridBagLayout GBL=new GridBagLayout();
 		MCont.setLayout(GBL);
@@ -86,30 +132,52 @@ public class MiriamGUI {
 		BagC.weighty=0;
 		BagC.gridx=0;
 		BagC.gridy=0;
+		BagC.gridwidth=2;
 		GBL.setConstraints(Pan1, BagC);
 		MCont.add(Pan1);
 
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=1;
 		BagC.weighty=0;
-		BagC.gridx=1;
+		BagC.gridx=2;
 		BagC.gridy=0;
+		BagC.gridwidth=2;
 		GBL.setConstraints(Pan2, BagC);
 		MCont.add(Pan2);
 
 		BagC.fill=GridBagConstraints.BOTH;
-		BagC.weightx=1;
-		BagC.weighty=1;
+		BagC.weightx=0;
+		BagC.weighty=0;
 		BagC.gridx=0;
-		BagC.gridy=2;
+		BagC.gridy=3;
+		BagC.gridwidth=1;
+		GBL.setConstraints(Pan7, BagC);
+		MCont.add(Pan7);
+		
+		BagC.fill=GridBagConstraints.BOTH;
+		BagC.weightx=0;
+		BagC.weighty=0;
+		BagC.gridx=1;
+		BagC.gridy=3;
+		BagC.gridwidth=1;
 		GBL.setConstraints(Pan3, BagC);
 		MCont.add(Pan3);
+		
+		BagC.fill=GridBagConstraints.BOTH;
+		BagC.weightx=0;
+		BagC.weighty=0;
+		BagC.gridx=2;
+		BagC.gridy=3;
+		BagC.gridwidth=1;
+		GBL.setConstraints(Pan8, BagC);
+		MCont.add(Pan8);
 
 		BagC.fill=GridBagConstraints.BOTH;
-		BagC.weightx=1;
-		BagC.weighty=1;
-		BagC.gridx=1;
-		BagC.gridy=2;
+		BagC.weightx=0;
+		BagC.weighty=0;
+		BagC.gridx=3;
+		BagC.gridy=3;
+		BagC.gridwidth=1;
 		GBL.setConstraints(Pan4, BagC);
 		MCont.add(Pan4);
 
@@ -118,10 +186,19 @@ public class MiriamGUI {
 		BagC.weighty=0;
 		BagC.gridx=0;
 		BagC.gridy=1;
-		BagC.gridwidth=2;
+		BagC.gridwidth=4;
 		GBL.setConstraints(Pan5, BagC);
 		MCont.add(Pan5);
 
+		BagC.fill=GridBagConstraints.BOTH;
+		BagC.weightx=1;
+		BagC.weighty=1;
+		BagC.gridx=0;
+		BagC.gridy=2;
+		BagC.gridwidth=4;
+		GBL.setConstraints(Pan6, BagC);
+		MCont.add(Pan6);
+		
 		MGUI.setVisible(false);
 
 		//JSON get
@@ -157,10 +234,19 @@ public class MiriamGUI {
 				emailtxt[i]=tmpEmail;			
 			}
 			MEmailPanel.setEmailtxt(emailtxt);
+			if(ne>0){
+				ImageIcon imgemailico= new ImageIcon("./img/email.png","Email Icon");
+				Image xemail=imgemailico.getImage();
+				xemail=xemail.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
+				imgemailico.setImage(xemail);
+				imgemail= new JLabel(imgemailico);
+				imgemail.setMaximumSize(new Dimension(100,100));
+				Pan7.add(imgemail);
+			}
 			
 			//Event setting text			
 			int nev=Minfo.getNumberOfEvents();
-			String tmpNev="Event number:"+nev;			
+			String tmpNev="Event:"+nev;			
 			LeventN.setText(tmpNev);
 			
 			String[] eventtxt=new String[nev];
@@ -170,6 +256,15 @@ public class MiriamGUI {
 				eventtxt[i]=tmpEvent;			
 			}
 			MEventPanel.setEventtxt(eventtxt);
+			if(nev>0){
+				ImageIcon imgeventico= new ImageIcon("./img/calendario.jpg","Calendar Icon");
+				Image xevent=imgeventico.getImage();
+				xevent=xevent.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
+				imgeventico.setImage(xevent);
+				imgevent= new JLabel(imgeventico);
+				imgevent.setMaximumSize(new Dimension(100,100));
+				Pan8.add(imgevent);
+			}
 
 			//hello panel
 			JLabel Mhello= new JLabel();

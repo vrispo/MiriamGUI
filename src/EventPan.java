@@ -13,7 +13,7 @@ public class EventPan extends JLabel{
 		index=0;
 		n=0;
 		
-		new Timer(3500,new ActionListener(){
+		new Timer(3000,new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				if(n!=0){
 					setText(eventtxt[index]);
