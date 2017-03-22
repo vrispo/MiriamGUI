@@ -41,8 +41,7 @@ public class Senders {
 	}
 
 	public String toString() {
-		return "name:" + name + ",email: " + email + ",subject:"
-				+ subject;
+		return name + "," + email + ","+ subject;
 	}
 
 }

@@ -15,19 +15,24 @@ public class MiriamGUI {
 		sock.setSendTimeout(-1);
 		 sock.bind("tcp://127.0.0.1:40000");
 
-		Font fTime=new Font("Arial",Font.ITALIC, 30);
+		Font fTime=new Font("Arial",Font.ITALIC, 40);
 		Font fDate=new Font("Arial",Font.ITALIC, 15);
 		Font fEmail=new Font("Arial",Font.ITALIC, 15);
-
+		Font fTemp=new Font("Arial",Font.ITALIC, 40);
+		
 		DatePan MDatePanel;
 		TimePan MTimePanel;
 		EmailPan MEmailPanel=new EmailPan();
 		JLabel Lemailunread=new JLabel();
 		EventPan MEventPanel=new EventPan();
-		JLabel LeventN=new JLabel();
 		
+		JLabel LeventN=new JLabel();
+		JLabel Ltemp=new JLabel();		
 		JLabel imgemail=new JLabel();
+		JLabel imgname=new JLabel();
+		JLabel imgsubj=new JLabel();
 		JLabel imgevent=new JLabel();
+		JLabel imgtime=new JLabel();
 		JLabel Mhello= new JLabel();
 
 		JFrame MGUI;
@@ -99,7 +104,7 @@ public class MiriamGUI {
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=0;
 		BagC.weighty=0;
-		BagC.gridx=0;
+		BagC.gridx=1;
 		BagC.gridy=0;
 		BagC.gridwidth=1;
 		GBL.setConstraints(Pan1, BagC);
@@ -108,16 +113,16 @@ public class MiriamGUI {
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=1;
 		BagC.weighty=0;
-		BagC.gridx=1;
+		BagC.gridx=2;
 		BagC.gridy=0;
-		BagC.gridwidth=2;
+		BagC.gridwidth=1;
 		GBL.setConstraints(Pan9, BagC);
 		MCont.add(Pan9);
 
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=0;
 		BagC.weighty=0;
-		BagC.gridx=3;
+		BagC.gridx=4;
 		BagC.gridy=0;
 		BagC.gridwidth=1;
 		GBL.setConstraints(Pan2, BagC);
@@ -129,11 +134,12 @@ public class MiriamGUI {
 		BagC.gridx=0;
 		BagC.gridy=3;
 		BagC.gridwidth=1;
+		BagC.insets.left=10;
 		GBL.setConstraints(Pan7, BagC);
 		MCont.add(Pan7);
 		
 		BagC.fill=GridBagConstraints.BOTH;
-		BagC.weightx=1;
+		BagC.weightx=0;
 		BagC.weighty=0;
 		BagC.gridx=1;
 		BagC.gridy=3;
@@ -144,16 +150,16 @@ public class MiriamGUI {
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=0;
 		BagC.weighty=0;
-		BagC.gridx=2;
+		BagC.gridx=3;
 		BagC.gridy=3;
 		BagC.gridwidth=1;
 		GBL.setConstraints(Pan8, BagC);
 		MCont.add(Pan8);
 
 		BagC.fill=GridBagConstraints.BOTH;
-		BagC.weightx=1;
+		BagC.weightx=0;
 		BagC.weighty=0;
-		BagC.gridx=3;
+		BagC.gridx=4;
 		BagC.gridy=3;
 		BagC.gridwidth=1;
 		GBL.setConstraints(Pan4, BagC);
@@ -164,16 +170,18 @@ public class MiriamGUI {
 		BagC.weighty=0;
 		BagC.gridx=0;
 		BagC.gridy=2;
-		BagC.gridwidth=1;
+		BagC.gridwidth=2;
+		BagC.anchor=GridBagConstraints.WEST;
 		GBL.setConstraints(Pan5, BagC);
 		MCont.add(Pan5);
 		
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=0;
 		BagC.weighty=0;
-		BagC.gridx=2;
+		BagC.gridx=3;
 		BagC.gridy=2;
-		BagC.gridwidth=1;
+		BagC.gridwidth=2;
+		BagC.anchor=GridBagConstraints.WEST;
 		GBL.setConstraints(Pan10, BagC);
 		MCont.add(Pan10);
 
@@ -182,7 +190,7 @@ public class MiriamGUI {
 		BagC.weighty=1;
 		BagC.gridx=0;
 		BagC.gridy=1;
-		BagC.gridwidth=4;
+		BagC.gridwidth=5;
 		GBL.setConstraints(Pan6, BagC);
 		MCont.add(Pan6);
 		
@@ -199,37 +207,65 @@ public class MiriamGUI {
 		GridBagConstraints BagCpan1=new GridBagConstraints();
 	
 		BagCpan1.fill=GridBagConstraints.BOTH;
-		BagCpan1.weightx=0;
+		BagCpan1.weightx=1;
 		BagCpan1.weighty=0;
 		BagCpan1.gridx=0;
 		BagCpan1.gridy=0;
 		GBLpan1.setConstraints(MTimePanel, BagCpan1);
 	
 		BagCpan1.fill=GridBagConstraints.BOTH;
-		BagCpan1.weightx=0;
+		BagCpan1.weightx=1;
 		BagCpan1.weighty=0;
 		BagCpan1.gridx=0;
 		BagCpan1.gridy=1;
 		GBLpan1.setConstraints(MDatePanel, BagCpan1);
 		
 		//panel7 setting
+		Pan7.setLayout(new GridLayout(3,1));
+		ImageIcon imgnameico= new ImageIcon("./img/name.png","Name Icon");
+		Image xname=imgnameico.getImage();
+		xname=xname.getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+		imgnameico.setImage(xname);
+		imgname= new JLabel(imgnameico);
+		imgname.setMaximumSize(new Dimension(20,20));
+		Pan7.add(imgname);
+		
 		ImageIcon imgemailico= new ImageIcon("./img/mail.png","Email Icon");
 		Image xemail=imgemailico.getImage();
-		xemail=xemail.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
+		xemail=xemail.getScaledInstance(20, 20,Image.SCALE_DEFAULT);
 		imgemailico.setImage(xemail);
 		imgemail= new JLabel(imgemailico);
-		imgemail.setMaximumSize(new Dimension(100,100));
+		imgemail.setMaximumSize(new Dimension(20,20));
 		Pan7.add(imgemail);
+		
+		ImageIcon imgsubjico= new ImageIcon("./img/subject.png","Subject Icon");
+		Image xsubj=imgsubjico.getImage();
+		xsubj=xsubj.getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+		imgsubjico.setImage(xsubj);
+		imgsubj= new JLabel(imgsubjico);
+		imgsubj.setMaximumSize(new Dimension(20,20));
+		imgsubj.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+		Pan7.add(imgsubj);
+		
 		Pan7.setVisible(false);
 		
 		//panel8 setting
-		ImageIcon imgeventico= new ImageIcon("./img/calendario.png","Calendar Icon");
+		Pan8.setLayout(new GridLayout(3,1));
+		ImageIcon imgeventico= new ImageIcon("./img/date.png","Date Icon");
 		Image xevent=imgeventico.getImage();
-		xevent=xevent.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
+		xevent=xevent.getScaledInstance(20, 20,Image.SCALE_DEFAULT);
 		imgeventico.setImage(xevent);
 		imgevent= new JLabel(imgeventico);
-		imgevent.setMaximumSize(new Dimension(100,100));
+		imgevent.setMaximumSize(new Dimension(20,20));
 		Pan8.add(imgevent);
+		
+		ImageIcon imgtimeico= new ImageIcon("./img/time.png","Time Icon");
+		Image xtime=imgtimeico.getImage();
+		xtime=xtime.getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+		imgtimeico.setImage(xtime);
+		imgtime= new JLabel(imgtimeico);
+		imgtime.setMaximumSize(new Dimension(20,20));
+		Pan8.add(imgtime);
 		Pan8.setVisible(false);
 		
 		//meteoicon
@@ -267,7 +303,11 @@ public class MiriamGUI {
 		x6=x6.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
 		imgicon6.setImage(x6);
 		
+		Pan2.add(Ltemp);
+		Ltemp.setFont(fTemp);
+		Ltemp.setForeground(Color.white);
 		Pan2.add(meteoimg);
+		
 		Pan1.setVisible(false);
 		Pan2.setVisible(false);
 		Pan3.setVisible(false);
@@ -295,7 +335,7 @@ public class MiriamGUI {
 				Pan1.setVisible(true);
 				Pan6.setVisible(true);
 				//Email setting text
-				String tmpNU="Unread:"+Minfo.getUnread();
+				String tmpNU="YOU HAVE "+Minfo.getUnread()+" UNREAD MAIL:";
 				Lemailunread.setText(tmpNU);
 				Pan5.setVisible(true);
 				
@@ -303,7 +343,7 @@ public class MiriamGUI {
 				String[] emailtxt=new String[ne];
 				for(int i=0;i<ne;i++){
 					String[] parts=Minfo.getxSendertoString(i).split(",");
-					String tmpEmail="<html>"+parts[0]+"<br>"+parts[1]+"<br>"+parts[2]+"<br></html>";
+					String tmpEmail="<html>"+parts[0]+"<br><br>"+parts[1]+"<br><br>"+parts[2]+"<br></html>";
 					emailtxt[i]=tmpEmail;			
 				}
 				MEmailPanel.setEmailtxt(emailtxt);
@@ -313,14 +353,14 @@ public class MiriamGUI {
 				
 				//Event setting text			
 				int nev=Minfo.getNumberOfEvents();
-				String tmpNev="Event:"+nev;			
+				String tmpNev=nev+" UPCOMING EVENTS:";			
 				LeventN.setText(tmpNev);
 				Pan10.setVisible(true);
 				
 				String[] eventtxt=new String[nev];
 				for(int i=0;i<nev;i++){
 					String[] parts=Minfo.getxEventtoString(i).split(",");
-					String tmpEvent="<html>"+parts[0]+"<br>"+parts[1]+"<br></html>";
+					String tmpEvent="<html>"+parts[0]+"<br><br>"+parts[1]+"<br></html>";
 					eventtxt[i]=tmpEvent;			
 				}
 				MEventPanel.setEventtxt(eventtxt);
@@ -334,10 +374,10 @@ public class MiriamGUI {
 				int h=date.getHours();
 				String Muserinfo;
 				if(h<=12)
-					Muserinfo="<html>Good Morning "+Minfo.getClientinfo()+"</html>";
+					Muserinfo="Good Morning "+Minfo.getClientinfo();
 				else
-					Muserinfo="<html>Good Evening "+Minfo.getClientinfo()+"</html>";
-				Mhello.setText(Muserinfo);
+					Muserinfo="Good Evening "+Minfo.getClientinfo();
+				Mhello.setText(Muserinfo.toUpperCase());
 				Pan9.setVisible(true);
 	
 				//meteo panel
@@ -361,6 +401,8 @@ public class MiriamGUI {
 						break;
 					default:
 				}
+				String t=Minfo.getTemp()+"°";
+				Ltemp.setText(t);
 				Pan2.setVisible(true);
 			}
 			else{

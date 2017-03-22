@@ -25,7 +25,7 @@ public class Events {
 	}
 
 	public String toString() {
-		return "name:" + name + ",time:" + time;
+		return name + "," + time;
 	}
 
 }
