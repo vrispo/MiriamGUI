@@ -114,12 +114,20 @@ public class InfoGUI {
 }
 
 	public String toString() {
-		int n = email_list.length;
 		String e="";
-		for(int i=0;i<n;i++)
-			e=e+email_list[i].toString()+" ";
+		if(email_list!=null){
+			int n = email_list.length;		
+			for(int i=0;i<n;i++)
+				e=e+email_list[i].toString()+" ";
+		}
+		String ev="";
+			if(events!=null){
+			int nev = events.length;
+			for(int i=0;i<nev;i++)
+				ev=ev+events[i].toString()+" ";
+		}
 		return "InfoGUI [weather=" + weather + ", temp=" + temperature + ", unread="
-				+ unread + ", sender=" + e + ", event=" + events
+				+ unread + ", sender=" + e + ", event=" + ev
 				+ ", clientinfo=" + user_id + ", command=" + command + "]";
 	}
 

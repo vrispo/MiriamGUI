@@ -34,7 +34,8 @@ public class MiriamGUI {
 		Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
 		MGUI= new JFrame("Miriam GUI");
 		MGUI.setResizable(false);
-		MGUI.setSize(screenSize);
+		MGUI.setSize(1200,900);
+		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//creation of all the panel
 		JPanel Pan1=new JPanel();
@@ -261,7 +262,7 @@ public class MiriamGUI {
 		x5=x5.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
 		imgicon5.setImage(x5);
 		
-		ImageIcon imgicon6= new ImageIcon("./img/nebbia.jpg","Nebbia");
+		ImageIcon imgicon6= new ImageIcon("./img/nebbia.png","Nebbia");
 		Image x6=imgicon6.getImage();
 		x6=x6.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
 		imgicon6.setImage(x6);
