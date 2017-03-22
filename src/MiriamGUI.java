@@ -266,8 +266,18 @@ public class MiriamGUI {
 		imgicon6.setImage(x6);
 		
 		Pan2.add(meteoimg);
+		Pan1.setVisible(false);
 		Pan2.setVisible(false);
-		
+		Pan3.setVisible(false);
+		Pan4.setVisible(false);
+		Pan4.setVisible(false);
+		Pan5.setVisible(false);
+		Pan6.setVisible(false);
+		Pan7.setVisible(false);
+		Pan8.setVisible(false);
+		Pan9.setVisible(false);
+		Pan10.setVisible(false);
+		MGUI.setVisible(true);
 		while(true){	
 			//JSON get
 			String jnew=sock.recvString();
@@ -350,8 +360,6 @@ public class MiriamGUI {
 					default:
 				}
 				Pan2.setVisible(true);
-				
-				MGUI.setVisible(true);
 			}
 			else{
 				Pan1.setVisible(false);
