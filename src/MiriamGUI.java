@@ -31,9 +31,10 @@ public class MiriamGUI {
 		JLabel Mhello= new JLabel();
 
 		JFrame MGUI;
+		Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
 		MGUI= new JFrame("Miriam GUI");
 		MGUI.setResizable(false);
-		MGUI.setSize(900,500);
+		MGUI.setSize(screenSize);
 
 		//creation of all the panel
 		JPanel Pan1=new JPanel();
@@ -211,7 +212,7 @@ public class MiriamGUI {
 		GBLpan1.setConstraints(MDatePanel, BagCpan1);
 		
 		//panel7 setting
-		ImageIcon imgemailico= new ImageIcon("./img/email.png","Email Icon");
+		ImageIcon imgemailico= new ImageIcon("./img/mail.png","Email Icon");
 		Image xemail=imgemailico.getImage();
 		xemail=xemail.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
 		imgemailico.setImage(xemail);
@@ -221,7 +222,7 @@ public class MiriamGUI {
 		Pan7.setVisible(false);
 		
 		//panel8 setting
-		ImageIcon imgeventico= new ImageIcon("./img/calendario.jpg","Calendar Icon");
+		ImageIcon imgeventico= new ImageIcon("./img/calendario.png","Calendar Icon");
 		Image xevent=imgeventico.getImage();
 		xevent=xevent.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
 		imgeventico.setImage(xevent);
