@@ -1,7 +1,6 @@
 import java.util.Date;
 import java.util.Locale;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 
 public class Events {
