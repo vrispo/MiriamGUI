@@ -1,9 +1,14 @@
+import java.util.Date;
+import java.util.Locale;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 
 public class Events {
 	private String name;
-	private String time;
+	private Date time;
 
-	public Events(String name, String time) {
+	public Events(String name, Date time) {
 		this.name = name;
 		this.time = time;
 	}
@@ -16,16 +21,17 @@ public class Events {
 		this.name = name;
 	}
 
-	public String getTime() {
+	public Date getTime() {
 		return time;
 	}
 
-	public void setTime(String time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 
 	public String toString() {
-		return name + "," + time;
+		DateFormat sdf=DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, Locale.ITALIAN);
+		return name + "," + sdf.format(time);
 	}
 
 }

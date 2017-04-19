@@ -6,6 +6,9 @@ import com.google.gson.*;
 import nanomsg.exceptions.*;
 import nanomsg.pipeline.PullSocket;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class MiriamGUI {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -353,7 +356,7 @@ public class MiriamGUI {
 				
 				//Event setting text			
 				int nev=Minfo.getNumberOfEvents();
-				String tmpNev=nev+" UPCOMING EVENTS:";			
+				String tmpNev=nev+" UPCOMING EVENTS:";
 				LeventN.setText(tmpNev);
 				Pan10.setVisible(true);
 				
