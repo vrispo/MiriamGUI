@@ -4,19 +4,23 @@ import javax.swing.Timer;
 
 public class EmailPan extends JLabel{
 	private static final long serialVersionUID = 1l;
-	private int index;
+	private static int index;
 	private String[] emailtxt;
-	private int n;
+	private static int n;
 	
 	public EmailPan(){
 		super();
 		index=0;
 		n=0;
-		
+	}
+	
+	public static void StartEmail(final EmailPan a, final EmailPan b, final EmailPan c){
 		new Timer(3000,new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				if(n!=0){
-					setText(emailtxt[index]);
+					a.setText(a.emailtxt[index]);
+					b.setText(b.emailtxt[index]);
+					c.setText(c.emailtxt[index]);
 					index=(index+1)%n;
 				}
 			}
@@ -24,20 +28,32 @@ public class EmailPan extends JLabel{
 	}
 
 	public int getIndex() {
-		return index;
+		return EmailPan.index;
 	}
 
-	public void setIndex(int index) {
-		this.index = index;
+	public static void setIndex(int index) {
+		EmailPan.index = index;
 	}
 
 	public String[] getEmailtxt() {
 		return emailtxt;
 	}
+	
+	public String getEmailtxt(int i) {
+		return emailtxt[i];
+	}
 
 	public void setEmailtxt(String[] emailtxt) {
 		this.emailtxt = emailtxt;
-		this.n=this.emailtxt.length;
+		//EmailPan.n=this.emailtxt.length;
+	}
+
+	public static int getN() {
+		return n;
+	}
+
+	public static void setN(int n) {
+		EmailPan.n = n;
 	}
 
 	@Override

@@ -25,7 +25,12 @@ public class MiriamGUI {
 		
 		DatePan MDatePanel;
 		TimePan MTimePanel;
-		EmailPan MEmailPanel=new EmailPan();
+		
+		EmailPan EmailName=new EmailPan();
+		EmailPan EmailSubject=new EmailPan();
+		EmailPan Email=new EmailPan();
+		EmailPan.StartEmail(Email, EmailName, EmailSubject);
+		
 		JLabel Lemailunread=new JLabel();
 		EventPan MEventPanel=new EventPan();
 		
@@ -70,14 +75,23 @@ public class MiriamGUI {
 		Pan10.setBackground(Color.black);
 
 		//Initialization of the text area to show the email
-		MEmailPanel.setBackground(Color.black);
-		MEmailPanel.setForeground(Color.white);
-		MEmailPanel.setFont(fEmail);
+		EmailName.setBackground(Color.black);
+		EmailName.setForeground(Color.white);
+		EmailName.setFont(fEmail);
+		EmailSubject.setBackground(Color.black);
+		EmailSubject.setForeground(Color.white);
+		EmailSubject.setFont(fEmail);
+		Email.setBackground(Color.black);
+		Email.setForeground(Color.white);
+		Email.setFont(fEmail);
 		Lemailunread.setBackground(Color.black);
 		Lemailunread.setForeground(Color.white);		
 		Lemailunread.setFont(fEmail);
 		
-		Pan3.add(MEmailPanel);	
+		Pan3.setLayout(new GridLayout(3,1));	
+		Pan3.add(Email);
+		Pan3.add(EmailName);
+		Pan3.add(EmailSubject);
 
 		//Initialization of the text area to show the event
 		MEventPanel.setBackground(Color.black);
@@ -344,12 +358,18 @@ public class MiriamGUI {
 				
 				int ne=Minfo.getNumberOfEmail();
 				String[] emailtxt=new String[ne];
+				String[] nametxt=new String[ne];
+				String[] subjecttxt=new String[ne];
 				for(int i=0;i<ne;i++){
 					String[] parts=Minfo.getxSendertoString(i).split(",");
-					String tmpEmail="<html>"+parts[0]+"<br><br>"+parts[1]+"<br><br>"+parts[2]+"<br></html>";
-					emailtxt[i]=tmpEmail;			
+					emailtxt[i]=parts[0];	
+					nametxt[i]=parts[1];
+					subjecttxt[i]=parts[2];
 				}
-				MEmailPanel.setEmailtxt(emailtxt);
+				Email.setEmailtxt(emailtxt);
+				EmailName.setEmailtxt(nametxt);
+				EmailSubject.setEmailtxt(subjecttxt);
+				EmailPan.setN(ne);
 				Pan3.setVisible(true);
 				if(ne>0)
 					Pan7.setVisible(true);
