@@ -4,31 +4,34 @@ import javax.swing.Timer;
 
 public class EventPan extends JLabel{
 	private static final long serialVersionUID = 1l;
-	private int index;
+	private static int index;
 	private String[] eventtxt;
-	private int n;
+	private static int n;
 	
 	public EventPan(){
 		super();
-		index=0;
-		n=0;
-		
+		EventPan.index=0;
+		EventPan.n=0;
+	}
+	
+	public static void StartEvent(final EventPan a, final EventPan b) {		
 		new Timer(3000,new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				if(n!=0){
-					setText(eventtxt[index]);
-					index=(index+1)%n;
+					a.setText(a.eventtxt[EventPan.index]);
+					b.setText(b.eventtxt[EventPan.index]);
+					EventPan.index=(EventPan.index+1)%n;
 				}
 			}
 		}).start();
 	}
 
 	public int getIndex() {
-		return index;
+		return EventPan.index;
 	}
 
 	public void setIndex(int index) {
-		this.index = index;
+		EventPan.index = index;
 	}
 
 	public String[] getEventtxt() {
@@ -37,7 +40,14 @@ public class EventPan extends JLabel{
 
 	public void setEventtxt(String[] eventtxt) {
 		this.eventtxt = eventtxt;
-		this.n=this.eventtxt.length;
+	}
+
+	public static int getN() {
+		return n;
+	}
+
+	public static void setN(int n) {
+		EventPan.n = n;
 	}
 
 	@Override

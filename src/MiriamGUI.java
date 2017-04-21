@@ -3,20 +3,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Date;
 import com.google.gson.*;
-import nanomsg.exceptions.*;
+//import nanomsg.exceptions.*;
 import nanomsg.pipeline.PullSocket;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
 
 public class MiriamGUI {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		PullSocket sock = new PullSocket();
 		sock.setRecvTimeout(-1);
 		sock.setSendTimeout(-1);
-		 sock.bind("tcp://127.0.0.1:40000");
+		sock.bind("tcp://127.0.0.1:40000");
 
 		Font fTime=new Font("Arial",Font.ITALIC, 40);
 		Font fDate=new Font("Arial",Font.ITALIC, 15);
@@ -29,12 +27,14 @@ public class MiriamGUI {
 		EmailPan EmailName=new EmailPan();
 		EmailPan EmailSubject=new EmailPan();
 		EmailPan Email=new EmailPan();
-		EmailPan.StartEmail(Email, EmailName, EmailSubject);
-		
+		EmailPan.StartEmail(Email, EmailName, EmailSubject);		
 		JLabel Lemailunread=new JLabel();
-		EventPan MEventPanel=new EventPan();
 		
+		EventPan EventName=new EventPan();	
+		EventPan EventTime=new EventPan();
+		EventPan.StartEvent(EventName, EventTime);
 		JLabel LeventN=new JLabel();
+		
 		JLabel Ltemp=new JLabel();		
 		JLabel imgemail=new JLabel();
 		JLabel imgname=new JLabel();
@@ -94,14 +94,19 @@ public class MiriamGUI {
 		Pan3.add(EmailSubject);
 
 		//Initialization of the text area to show the event
-		MEventPanel.setBackground(Color.black);
-		MEventPanel.setForeground(Color.white);
-		MEventPanel.setFont(fEmail);
+		EventName.setBackground(Color.black);
+		EventName.setForeground(Color.white);
+		EventName.setFont(fEmail);
+		EventTime.setBackground(Color.black);
+		EventTime.setForeground(Color.white);
+		EventTime.setFont(fEmail);
 		LeventN.setBackground(Color.black);
 		LeventN.setForeground(Color.white);		
 		LeventN.setFont(fEmail);	
 
-		Pan4.add(MEventPanel);	
+		Pan4.setLayout(new GridLayout(3,1));
+		Pan4.add(EventName);
+		Pan4.add(EventTime);	
 
 		Container MCont=MGUI.getContentPane();
 		MCont.setBackground(Color.black);
@@ -380,13 +385,16 @@ public class MiriamGUI {
 				LeventN.setText(tmpNev);
 				Pan10.setVisible(true);
 				
-				String[] eventtxt=new String[nev];
+				String[] eventntxt=new String[nev];
+				String[] eventttxt=new String[nev];
 				for(int i=0;i<nev;i++){
 					String[] parts=Minfo.getxEventtoString(i).split(",");
-					String tmpEvent="<html>"+parts[0]+"<br><br>"+parts[1]+"<br></html>";
-					eventtxt[i]=tmpEvent;			
+					eventntxt[i]=parts[0];	
+					eventttxt[i]=parts[1];
 				}
-				MEventPanel.setEventtxt(eventtxt);
+				EventName.setEventtxt(eventntxt);
+				EventTime.setEventtxt(eventttxt);
+				EventPan.setN(nev);
 				Pan4.setVisible(true);
 				if(nev>0)
 					Pan8.setVisible(true);
