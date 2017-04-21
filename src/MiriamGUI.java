@@ -56,8 +56,8 @@ public class MiriamGUI {
 		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//creation of all the panel
-		JPanel Pan1=new JPanel();
-		JPanel Pan2= new JPanel();
+		JPanel Pan1=new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel Pan2= new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel Pan3= new JPanel();
 		JPanel Pan4= new JPanel();
 		JPanel Pan5= new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -137,9 +137,9 @@ public class MiriamGUI {
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=0;
 		BagC.weighty=0;
-		BagC.gridx=1;
+		BagC.gridx=0;
 		BagC.gridy=0;
-		BagC.gridwidth=1;
+		BagC.gridwidth=2;
 		GBL.setConstraints(Pan1, BagC);
 		MCont.add(Pan1);
 		
@@ -155,9 +155,9 @@ public class MiriamGUI {
 		BagC.fill=GridBagConstraints.BOTH;
 		BagC.weightx=0;
 		BagC.weighty=0;
-		BagC.gridx=4;
+		BagC.gridx=3;
 		BagC.gridy=0;
-		BagC.gridwidth=1;
+		BagC.gridwidth=2;
 		GBL.setConstraints(Pan2, BagC);
 		MCont.add(Pan2);
 
