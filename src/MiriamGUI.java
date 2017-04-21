@@ -9,6 +9,9 @@ import nanomsg.pipeline.PullSocket;
 //import java.text.SimpleDateFormat;
 
 public class MiriamGUI {
+	static GraphicsDevice device = GraphicsEnvironment
+	        .getLocalGraphicsEnvironment().getScreenDevices()[0];
+	
 	public static void main(String[] args) {
 
 		PullSocket sock = new PullSocket();
@@ -47,7 +50,9 @@ public class MiriamGUI {
 		Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
 		MGUI= new JFrame("Miriam GUI");
 		MGUI.setResizable(false);
-		MGUI.setSize(1200,900);
+		//MGUI.setSize(1200,900);
+		MGUI.setUndecorated(true);
+		device.setFullScreenWindow(MGUI);
 		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//creation of all the panel
@@ -55,12 +60,12 @@ public class MiriamGUI {
 		JPanel Pan2= new JPanel();
 		JPanel Pan3= new JPanel();
 		JPanel Pan4= new JPanel();
-		JPanel Pan5= new JPanel();
+		JPanel Pan5= new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel Pan6= new JPanel();
 		JPanel Pan7= new JPanel();
 		JPanel Pan8= new JPanel();
 		JPanel Pan9= new JPanel();
-		JPanel Pan10= new JPanel();
+		JPanel Pan10= new JPanel(new FlowLayout(FlowLayout.LEFT));
 
 		//general configuration of all the panel
 		Pan1.setBackground(Color.black);
@@ -73,6 +78,9 @@ public class MiriamGUI {
 		Pan8.setBackground(Color.black);
 		Pan9.setBackground(Color.black);
 		Pan10.setBackground(Color.black);
+		
+		Pan3.setPreferredSize(new Dimension(400,150));
+		Pan4.setPreferredSize(new Dimension(400,150));
 
 		//Initialization of the text area to show the email
 		EmailName.setBackground(Color.black);
@@ -87,6 +95,9 @@ public class MiriamGUI {
 		Lemailunread.setBackground(Color.black);
 		Lemailunread.setForeground(Color.white);		
 		Lemailunread.setFont(fEmail);
+		
+		Lemailunread.setHorizontalAlignment(Label.LEFT);
+		Lemailunread.setBackground(Color.GREEN);
 		
 		Pan3.setLayout(new GridLayout(3,1));	
 		Pan3.add(Email);
@@ -252,7 +263,7 @@ public class MiriamGUI {
 		imgname.setMaximumSize(new Dimension(20,20));
 		Pan7.add(imgname);
 		
-		ImageIcon imgemailico= new ImageIcon("./img/mail.png","Email Icon");
+		ImageIcon imgemailico= new ImageIcon("./img/email.png","Email Icon");
 		Image xemail=imgemailico.getImage();
 		xemail=xemail.getScaledInstance(20, 20,Image.SCALE_DEFAULT);
 		imgemailico.setImage(xemail);
@@ -357,7 +368,7 @@ public class MiriamGUI {
 				Pan1.setVisible(true);
 				Pan6.setVisible(true);
 				//Email setting text
-				String tmpNU="YOU HAVE "+Minfo.getUnread()+" UNREAD MAIL:";
+				String tmpNU="<html><text aling=left>YOU HAVE "+Minfo.getUnread()+" UNREAD MAIL:</text></html>";
 				Lemailunread.setText(tmpNU);
 				Pan5.setVisible(true);
 				
