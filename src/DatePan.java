@@ -13,7 +13,8 @@ public class DatePan extends JLabel{
 
 		new Timer(1000,new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				String t="<html><div style= margin-left:15px; padding:10px>"+dateFormat.format(Calendar.getInstance().getTime())+"</div></html>";
+				//String t="<html><div style= margin-left:15px; padding:10px>"+dateFormat.format(Calendar.getInstance().getTime())+"</div></html>";
+				String t=dateFormat.format(Calendar.getInstance().getTime());
 				setText(t);
 			}
 		}).start();

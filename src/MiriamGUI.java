@@ -47,25 +47,26 @@ public class MiriamGUI {
 		JLabel Mhello= new JLabel();
 
 		JFrame MGUI;
-		Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
+		//Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
 		MGUI= new JFrame("Miriam GUI");
 		MGUI.setResizable(false);
-		//MGUI.setSize(1200,900);
+		MGUI.setSize(1200,900);
 		MGUI.setUndecorated(true);
-		device.setFullScreenWindow(MGUI);
+		//device.setFullScreenWindow(MGUI);
+		//MGUI.set(JFrame.MAXIMIZED_BOTH);
 		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//creation of all the panel
-		JPanel Pan1=new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel Pan2= new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel Pan3= new JPanel();
-		JPanel Pan4= new JPanel();
-		JPanel Pan5= new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel Pan1=new JPanel(new FlowLayout(FlowLayout.LEFT)); //date-time panel
+		JPanel Pan2= new JPanel(new FlowLayout(FlowLayout.RIGHT)); //meteo panel
+		JPanel Pan3= new JPanel(); //email text
+		JPanel Pan4= new JPanel(); //event text
+		JPanel Pan5= new JPanel(new FlowLayout(FlowLayout.CENTER)); //title mail
 		JPanel Pan6= new JPanel();
-		JPanel Pan7= new JPanel();
-		JPanel Pan8= new JPanel();
-		JPanel Pan9= new JPanel();
-		JPanel Pan10= new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel Pan7= new JPanel(); //email ico
+		JPanel Pan8= new JPanel(); //event ico
+		JPanel Pan9= new JPanel(); //hello panel
+		JPanel Pan10= new JPanel(new FlowLayout(FlowLayout.CENTER)); //title event
 
 		//general configuration of all the panel
 		Pan1.setBackground(Color.black);
@@ -78,6 +79,15 @@ public class MiriamGUI {
 		Pan8.setBackground(Color.black);
 		Pan9.setBackground(Color.black);
 		Pan10.setBackground(Color.black);
+		
+		Pan1.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));//top-left-bottom-right
+		Pan2.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 70));
+		
+		Pan3.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
+		Pan4.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 70));
+		Pan7.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
+		Pan8.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
+		Pan10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 70));
 		
 		Pan3.setPreferredSize(new Dimension(400,150));
 		Pan4.setPreferredSize(new Dimension(400,150));
