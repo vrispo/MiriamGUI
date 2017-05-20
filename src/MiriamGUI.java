@@ -50,9 +50,9 @@ public class MiriamGUI {
 		//Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
 		MGUI= new JFrame("Miriam GUI");
 		MGUI.setResizable(false);
-		MGUI.setSize(1200,900);
+		//MGUI.setSize(1200,900);
 		MGUI.setUndecorated(true);
-		//device.setFullScreenWindow(MGUI);
+		device.setFullScreenWindow(MGUI);
 		//MGUI.set(JFrame.MAXIMIZED_BOTH);
 		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
