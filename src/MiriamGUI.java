@@ -89,8 +89,10 @@ public class MiriamGUI {
 		Pan8.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
 		Pan10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 70));
 		
-		Pan3.setPreferredSize(new Dimension(400,150));
-		Pan4.setPreferredSize(new Dimension(400,150));
+		Pan1.setPreferredSize(new Dimension(300,100));
+		Pan2.setPreferredSize(new Dimension(300,100));
+		Pan3.setPreferredSize(new Dimension(350,150));
+		Pan4.setPreferredSize(new Dimension(350,150));
 
 		//Initialization of the text area to show the email
 		EmailName.setBackground(Color.black);
