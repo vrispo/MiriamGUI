@@ -101,7 +101,7 @@ public class MiriamGUI {
 		
 		Pan7.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0));
 		Pan8.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0));
-		Pan9.setBorder(BorderFactory.createEmptyBorder(50, 0, 0, 0));
+		Pan9.setBorder(BorderFactory.createEmptyBorder(60, 0, 0, 0));
 		Pan10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
 		
 		Pan1.setPreferredSize(new Dimension(200,150));

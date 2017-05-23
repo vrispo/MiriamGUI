@@ -29,8 +29,9 @@ public class InfoGUI {
 		this.command = 's';
 	}
 
-	public float getTemp() {
-		return temperature;
+	public int getTemp() {
+		int t=Math.round(this.temperature);
+		return t;
 	}
 
 
