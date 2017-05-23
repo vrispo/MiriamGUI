@@ -93,21 +93,23 @@ public class MiriamGUI {
 		Pan9.setBackground(Color.black);
 		Pan10.setBackground(Color.black);
 		
-		Pan1.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));//top-left-bottom-right
-		Pan2.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 20));
+		Pan1.setBorder(BorderFactory.createEmptyBorder(50, 10, 0, 10));//top-left-bottom-right
+		Pan2.setBorder(BorderFactory.createEmptyBorder(50, 10, 0, 20));
 		
-		Pan3.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
-		Pan4.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 20));
-		Pan7.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
-		Pan8.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
+		Pan3.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0));
+		Pan4.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 20));
+		
+		Pan7.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0));
+		Pan8.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0));
+		Pan9.setBorder(BorderFactory.createEmptyBorder(50, 0, 0, 0));
 		Pan10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
 		
-		Pan1.setPreferredSize(new Dimension(200,100));
-		Pan2.setPreferredSize(new Dimension(200,100));
+		Pan1.setPreferredSize(new Dimension(200,150));
+		Pan2.setPreferredSize(new Dimension(200,150));
 		Pan5.setPreferredSize(new Dimension(200,20));
 		Pan10.setPreferredSize(new Dimension(200,20));
-		Pan3.setPreferredSize(new Dimension(200,100));
-		Pan4.setPreferredSize(new Dimension(200,100));
+		Pan3.setPreferredSize(new Dimension(200,150));
+		Pan4.setPreferredSize(new Dimension(200,150));
 
 		//Initialization of the text area to show the email
 		EmailName.setBackground(Color.black);
