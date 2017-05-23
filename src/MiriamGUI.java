@@ -49,7 +49,7 @@ public class MiriamGUI {
 		JFrame MGUI;
 		//Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
 		MGUI= new JFrame("Miriam GUI");
-		MGUI.setResizable(false);
+		MGUI.setResizable(true);
 		//MGUI.setSize(1200,900);
 		MGUI.setUndecorated(true);
 		device.setFullScreenWindow(MGUI);
@@ -81,18 +81,18 @@ public class MiriamGUI {
 		Pan10.setBackground(Color.black);
 		
 		Pan1.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));//top-left-bottom-right
-		Pan2.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 70));
+		Pan2.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 20));
 		
 		Pan3.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
-		Pan4.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 70));
+		Pan4.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 20));
 		Pan7.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
 		Pan8.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
-		Pan10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 70));
+		Pan10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
 		
-		Pan1.setPreferredSize(new Dimension(300,100));
-		Pan2.setPreferredSize(new Dimension(300,100));
-		Pan3.setPreferredSize(new Dimension(350,150));
-		Pan4.setPreferredSize(new Dimension(350,150));
+		Pan1.setPreferredSize(new Dimension(200,100));
+		Pan2.setPreferredSize(new Dimension(200,100));
+		Pan3.setPreferredSize(new Dimension(250,150));
+		Pan4.setPreferredSize(new Dimension(250,150));
 
 		//Initialization of the text area to show the email
 		EmailName.setBackground(Color.black);
