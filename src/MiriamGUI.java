@@ -22,7 +22,7 @@ public class MiriamGUI {
 		Font fTime=new Font("Arial",Font.BOLD, 40);
 		Font fDate=new Font("Arial",Font.BOLD, 15);
 		Font fEmail=new Font("Arial",Font.BOLD, 15);
-		Font fTemp=new Font("Arial",Font.BOLD, 20);
+		Font fTemp=new Font("Arial",Font.BOLD, 40);
 		
 		DatePan MDatePanel;
 		TimePan MTimePanel;
@@ -52,7 +52,7 @@ public class MiriamGUI {
 		MGUI.setResizable(true);
 		MGUI.setSize(720,576);
 		MGUI.setUndecorated(true);
-		device.setFullScreenWindow(MGUI);
+		//device.setFullScreenWindow(MGUI);
 		//MGUI.set(JFrame.MAXIMIZED_BOTH);
 		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
