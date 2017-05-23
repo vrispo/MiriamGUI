@@ -22,7 +22,7 @@ public class MiriamGUI {
 		Font fTime=new Font("Arial",Font.ITALIC, 40);
 		Font fDate=new Font("Arial",Font.ITALIC, 15);
 		Font fEmail=new Font("Arial",Font.ITALIC, 15);
-		Font fTemp=new Font("Arial",Font.ITALIC, 40);
+		Font fTemp=new Font("Arial",Font.ITALIC, 20);
 		
 		DatePan MDatePanel;
 		TimePan MTimePanel;
@@ -50,9 +50,9 @@ public class MiriamGUI {
 		//Dimension screenSize =Toolkit.getDefaultToolkit().getScreenSize();
 		MGUI= new JFrame("Miriam GUI");
 		MGUI.setResizable(true);
-		//MGUI.setSize(1200,900);
+		MGUI.setSize(720,576);
 		MGUI.setUndecorated(true);
-		device.setFullScreenWindow(MGUI);
+		//device.setFullScreenWindow(MGUI);
 		//MGUI.set(JFrame.MAXIMIZED_BOTH);
 		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -67,6 +67,19 @@ public class MiriamGUI {
 		JPanel Pan8= new JPanel(); //event ico
 		JPanel Pan9= new JPanel(); //hello panel
 		JPanel Pan10= new JPanel(new FlowLayout(FlowLayout.CENTER)); //title event
+		
+		//setting the visualization of the panel false
+		Pan1.setVisible(false);
+		Pan2.setVisible(false);
+		Pan3.setVisible(false);
+		Pan4.setVisible(false);
+		Pan4.setVisible(false);
+		Pan5.setVisible(false);
+		Pan6.setVisible(false);
+		Pan7.setVisible(false);
+		Pan8.setVisible(false);
+		Pan9.setVisible(false);
+		Pan10.setVisible(false);
 
 		//general configuration of all the panel
 		Pan1.setBackground(Color.black);
@@ -91,8 +104,10 @@ public class MiriamGUI {
 		
 		Pan1.setPreferredSize(new Dimension(200,100));
 		Pan2.setPreferredSize(new Dimension(200,100));
-		Pan3.setPreferredSize(new Dimension(250,150));
-		Pan4.setPreferredSize(new Dimension(250,150));
+		Pan5.setPreferredSize(new Dimension(200,50));
+		Pan10.setPreferredSize(new Dimension(200,50));
+		Pan3.setPreferredSize(new Dimension(200,150));
+		Pan4.setPreferredSize(new Dimension(200,150));
 
 		//Initialization of the text area to show the email
 		EmailName.setBackground(Color.black);
@@ -353,17 +368,6 @@ public class MiriamGUI {
 		Ltemp.setForeground(Color.white);
 		Pan2.add(meteoimg);
 		
-		Pan1.setVisible(false);
-		Pan2.setVisible(false);
-		Pan3.setVisible(false);
-		Pan4.setVisible(false);
-		Pan4.setVisible(false);
-		Pan5.setVisible(false);
-		Pan6.setVisible(false);
-		Pan7.setVisible(false);
-		Pan8.setVisible(false);
-		Pan9.setVisible(false);
-		Pan10.setVisible(false);
 		MGUI.setVisible(true);
 		while(true){	
 			//JSON get
