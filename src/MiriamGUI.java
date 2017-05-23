@@ -52,7 +52,7 @@ public class MiriamGUI {
 		MGUI.setResizable(true);
 		MGUI.setSize(720,576);
 		MGUI.setUndecorated(true);
-		//device.setFullScreenWindow(MGUI);
+		device.setFullScreenWindow(MGUI);
 		//MGUI.set(JFrame.MAXIMIZED_BOTH);
 		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
