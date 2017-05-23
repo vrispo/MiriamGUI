@@ -19,10 +19,10 @@ public class MiriamGUI {
 		sock.setSendTimeout(-1);
 		sock.bind("tcp://127.0.0.1:40000");
 
-		Font fTime=new Font("Arial",Font.ITALIC, 40);
-		Font fDate=new Font("Arial",Font.ITALIC, 15);
-		Font fEmail=new Font("Arial",Font.ITALIC, 15);
-		Font fTemp=new Font("Arial",Font.ITALIC, 20);
+		Font fTime=new Font("Arial",Font.BOLD, 40);
+		Font fDate=new Font("Arial",Font.BOLD, 15);
+		Font fEmail=new Font("Arial",Font.BOLD, 15);
+		Font fTemp=new Font("Arial",Font.BOLD, 20);
 		
 		DatePan MDatePanel;
 		TimePan MTimePanel;
@@ -104,10 +104,10 @@ public class MiriamGUI {
 		
 		Pan1.setPreferredSize(new Dimension(200,100));
 		Pan2.setPreferredSize(new Dimension(200,100));
-		Pan5.setPreferredSize(new Dimension(200,50));
-		Pan10.setPreferredSize(new Dimension(200,50));
-		Pan3.setPreferredSize(new Dimension(200,150));
-		Pan4.setPreferredSize(new Dimension(200,150));
+		Pan5.setPreferredSize(new Dimension(200,20));
+		Pan10.setPreferredSize(new Dimension(200,20));
+		Pan3.setPreferredSize(new Dimension(200,100));
+		Pan4.setPreferredSize(new Dimension(200,100));
 
 		//Initialization of the text area to show the email
 		EmailName.setBackground(Color.black);
