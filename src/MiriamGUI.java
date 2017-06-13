@@ -60,11 +60,11 @@ public class MiriamGUI {
 		JPanel Pan1=new JPanel(new FlowLayout(FlowLayout.LEFT)); //date-time panel
 		JPanel Pan2= new JPanel(new FlowLayout(FlowLayout.RIGHT)); //meteo panel
 		JPanel Pan3= new JPanel(); //email text
-		JPanel Pan4= new JPanel(); //event text
+		JPanel Pan4= new JPanel(new FlowLayout(FlowLayout.RIGHT)); //event text
 		JPanel Pan5= new JPanel(new FlowLayout(FlowLayout.CENTER)); //title mail
 		JPanel Pan6= new JPanel();
 		JPanel Pan7= new JPanel(); //email ico
-		JPanel Pan8= new JPanel(); //event ico
+		JPanel Pan8= new JPanel(new FlowLayout(FlowLayout.LEFT)); //event ico
 		JPanel Pan9= new JPanel(); //hello panel
 		JPanel Pan10= new JPanel(new FlowLayout(FlowLayout.CENTER)); //title event
 		
@@ -105,11 +105,13 @@ public class MiriamGUI {
 		Pan10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
 		
 		Pan1.setPreferredSize(new Dimension(200,150));
-		Pan2.setPreferredSize(new Dimension(200,150));
+		Pan2.setPreferredSize(new Dimension(210,150));
 		Pan5.setPreferredSize(new Dimension(200,20));
 		Pan10.setPreferredSize(new Dimension(200,20));
 		Pan3.setPreferredSize(new Dimension(200,150));
-		Pan4.setPreferredSize(new Dimension(200,150));
+		Pan4.setPreferredSize(new Dimension(210,150));
+		
+		Pan4.setMaximumSize(new Dimension(210,150));
 
 		//Initialization of the text area to show the email
 		EmailName.setBackground(Color.black);
@@ -331,9 +333,11 @@ public class MiriamGUI {
 		Pan8.setVisible(false);
 		
 		//meteoicon
+		Pan2.setLayout(new GridLayout(1,2));
+		
 		JLabel meteoimg;
 		meteoimg= new JLabel();
-		meteoimg.setMaximumSize(new Dimension(100,100));
+		meteoimg.setMaximumSize(new Dimension(80,80));
 		
 		ImageIcon imgicon1= new ImageIcon("./img/sole.png","Sereno");
 		Image x=imgicon1.getImage();
@@ -386,7 +390,7 @@ public class MiriamGUI {
 				Pan1.setVisible(true);
 				Pan6.setVisible(true);
 				//Email setting text
-				String tmpNU="<html><text aling=left>YOU HAVE "+Minfo.getUnread()+" UNREAD MAIL:</text></html>";
+				String tmpNU="<html><text aling=left>"+Minfo.getUnread()+" UNREAD MAIL:</text></html>";
 				Lemailunread.setText(tmpNU);
 				Pan5.setVisible(true);
 				
@@ -430,14 +434,14 @@ public class MiriamGUI {
 
 				//hello panel
 				
-				Date date=new Date();
+				/*Date date=new Date();
 				int h=date.getHours();
 				String Muserinfo;
 				if(h<=12)
 					Muserinfo="Good Morning "+Minfo.getClientinfo();
 				else
 					Muserinfo="Good Evening "+Minfo.getClientinfo();
-				Mhello.setText(Muserinfo.toUpperCase());
+				Mhello.setText(Muserinfo.toUpperCase());*/
 				Pan9.setVisible(true);
 	
 				//meteo panel
