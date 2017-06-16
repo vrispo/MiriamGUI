@@ -27,25 +27,34 @@ miriam_bin='MiriamGUI'
 log_file="MiriamGUI.log"
 
 required=(xset)
+mgui_pid=
+
+setup()
+{
+    export DISPLAY=:0
+    xset -dpms
+    printf -- "START === %s\n" "$(date)" >> $log_file
+    trap cleanup EXIT
+}
+
+cleanup()
+{
+    if [ -n "$mgui_pid" ]; then
+        kill $mgui_pid >/dev/null 2>&1
+    fi
+    printf -- "STOP === %s\n" "$(date)" >> $log_file
+    xset +dpms
+}
 
 for r in ${required[@]}; do
     which "$r" >/dev/null 2>&1 || { printf -- "%s not found\n" "$r"; exit 1; }
 done
+unset required
 
-export DISPLAY=:0
-
-#### setup #####################################################################
-xset -dpms
-################################################################################
+setup
 
 #launch miriamGUI
-printf -- "START === %s\n" "$(date)" >> $log_file
 java -cp $java_classpath MiriamGUI 2>&1 | tee -a $log_file &
-printf -- "STOP === %s\n" "$(date)" >> $log_file
 mgui_pid=$!
 
 wait $mgui_pid
-
-#### cleanup ###################################################################
-xset +dpms
-################################################################################
