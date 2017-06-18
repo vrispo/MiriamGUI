@@ -52,7 +52,7 @@ public class MiriamGUI {
 		MGUI.setResizable(true);
 		MGUI.setSize(720,576);
 		MGUI.setUndecorated(true);
-		//device.setFullScreenWindow(MGUI);
+		device.setFullScreenWindow(MGUI);
 		//MGUI.set(JFrame.MAXIMIZED_BOTH);
 		MGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -105,7 +105,7 @@ public class MiriamGUI {
 		Pan10.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
 		
 		Pan1.setPreferredSize(new Dimension(200,150));
-		Pan2.setPreferredSize(new Dimension(210,150));
+		Pan2.setPreferredSize(new Dimension(210,170));
 		Pan5.setPreferredSize(new Dimension(200,20));
 		Pan10.setPreferredSize(new Dimension(200,20));
 		Pan3.setPreferredSize(new Dimension(200,150));
@@ -337,7 +337,8 @@ public class MiriamGUI {
 		
 		JLabel meteoimg;
 		meteoimg= new JLabel();
-		meteoimg.setMaximumSize(new Dimension(80,80));
+		meteoimg.setMaximumSize(new Dimension(100,100));
+		meteoimg.setBorder(BorderFactory.createLineBorder(Color.black, 5));
 		
 		ImageIcon imgicon1= new ImageIcon("./img/sole.png","Sereno");
 		Image x=imgicon1.getImage();
