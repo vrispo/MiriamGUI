@@ -394,25 +394,44 @@ public class MiriamGUI {
 				//Email setting text
 				String tmpNU="<html><text aling=left>"+Minfo.getUnread()+" UNREAD MAIL:</text></html>";
 				Lemailunread.setText(tmpNU);
+				System.out.println("setted unread"+tmpNU);
 				Pan5.setVisible(true);
 				
 				int ne=Minfo.getNumberOfEmail();
-				String[] emailtxt=new String[ne];
-				String[] nametxt=new String[ne];
-				String[] subjecttxt=new String[ne];
-				for(int i=0;i<ne;i++){
-					String[] parts=Minfo.getxSendertoString(i).split(",");
-					emailtxt[i]=parts[0];	
-					nametxt[i]=parts[1];
-					subjecttxt[i]=parts[2];
+				System.out.println("setted number of email"+ne);
+				if(ne!=0){
+					String[] emailtxt=new String[ne];
+					String[] nametxt=new String[ne];
+					String[] subjecttxt=new String[ne];
+					for(int i=0;i<ne;i++){
+						String[] parts=Minfo.getxSendertoString(i).split(",");
+						emailtxt[i]=parts[0];	
+						nametxt[i]=parts[1];
+						subjecttxt[i]=parts[2];
+					}
+					Email.setEmailtxt(emailtxt);
+					EmailName.setEmailtxt(nametxt);
+					EmailSubject.setEmailtxt(subjecttxt);
+					EmailPan.setN(ne);
 				}
-				Email.setEmailtxt(emailtxt);
-				EmailName.setEmailtxt(nametxt);
-				EmailSubject.setEmailtxt(subjecttxt);
-				EmailPan.setN(ne);
+				else{
+					String[] emailtxt=new String[1];
+					emailtxt[0]="";
+					String[] nametxt=new String[1];
+					nametxt[0]="";
+					String[] subjecttxt=new String[1];
+					subjecttxt[0]="";
+					Email.setEmailtxt(emailtxt);
+					EmailName.setEmailtxt(nametxt);
+					EmailSubject.setEmailtxt(subjecttxt);
+					EmailPan.setN(1);
+				}
+
 				Pan3.setVisible(true);
 				if(ne>0)
 					Pan7.setVisible(true);
+				else
+					Pan7.setVisible(false);
 				
 				//Event setting text			
 				int nev=Minfo.getNumberOfEvents();
@@ -420,19 +439,33 @@ public class MiriamGUI {
 				LeventN.setText(tmpNev);
 				Pan10.setVisible(true);
 				
-				String[] eventntxt=new String[nev];
-				String[] eventttxt=new String[nev];
-				for(int i=0;i<nev;i++){
-					String[] parts=Minfo.getxEventtoString(i).split(",");
-					eventntxt[i]=parts[0];	
-					eventttxt[i]=parts[1];
+				if(nev!=0){
+					String[] eventntxt=new String[nev];
+					String[] eventttxt=new String[nev];
+					for(int i=0;i<nev;i++){
+						String[] parts=Minfo.getxEventtoString(i).split(",");
+						eventntxt[i]=parts[0];	
+						eventttxt[i]=parts[1];
+					}
+					EventName.setEventtxt(eventntxt);
+					EventTime.setEventtxt(eventttxt);
+					EventPan.setN(nev);
 				}
-				EventName.setEventtxt(eventntxt);
-				EventTime.setEventtxt(eventttxt);
-				EventPan.setN(nev);
+				else{
+					String[] eventntxt=new String[1];
+					eventntxt[0]="";
+					String[] eventttxt=new String[1];
+					eventttxt[0]="";
+					EventName.setEventtxt(eventntxt);
+					EventTime.setEventtxt(eventttxt);
+					EventPan.setN(1);
+				}
+
 				Pan4.setVisible(true);
 				if(nev>0)
 					Pan8.setVisible(true);
+				else
+					Pan8.setVisible(false);
 
 				//hello panel
 				
