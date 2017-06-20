@@ -383,7 +383,8 @@ public class MiriamGUI {
 			System.out.println(jnew);
 			Gson g= new Gson();
 
-			InfoGUI Minfo=(InfoGUI) g.fromJson(jnew, InfoGUI.class);
+			InfoGUI Minfo=new InfoGUI();
+			Minfo=(InfoGUI) g.fromJson(jnew, InfoGUI.class);
 			System.out.println(Minfo.toString());
 
 			if(Minfo.getCommand()=='d'){

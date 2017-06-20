@@ -117,7 +117,7 @@ public class InfoGUI {
 	public String toString() {
 		String e="";
 		if(email_list!=null){
-			int n = email_list.length;		
+			int n = email_list.length;			
 			for(int i=0;i<n;i++)
 				e=e+email_list[i].toString()+" ";
 		}
